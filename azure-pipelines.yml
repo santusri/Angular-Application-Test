@@ -7,18 +7,23 @@ trigger:
 - master
 
 pool: Ubuntu-EC2-UE1
-  
+name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
 steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '8.x'
-  displayName: 'Install Node.js'
+  displayName: 'Build versionized'
 
 - script: |
     ng add @ng-toolkit/universal
     ng add @ng-toolkit/serverless  —-provider aws
+    inputs:
     npm run build:serverless:deploy
+    inputs:
+    PathtoPublish: '/home/ubuntu/DevOps/_work2/1/s/.serverless'
+    ArtifactName: '*.json'
     env
     sudo cp -rf /home/ubuntu/DevOps/_work/* /home/ubuntu/DevOps/_work2/*
     sudo rm -rf /home/ubuntu/DevOps/_work/*
-  displayName: 'build steps'
+  displayName: 'Build steps'
