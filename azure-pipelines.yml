@@ -19,5 +19,6 @@ steps:
     ng add @ng-toolkit/serverless  —-provider aws
     npm run build:serverless:deploy
     env
-    sudo mv /home/ubuntu/DevOps/_work/* /home/ubuntu/DevOps/_work2/*
+    sudo cp -rf /home/ubuntu/DevOps/_work/* /home/ubuntu/DevOps/_work2/*
+    sudo rm -rf /home/ubuntu/DevOps/_work/*
     displayName: 'build steps'
