@@ -25,5 +25,5 @@ steps:
     ArtifactName: '*.json'
     env
     sudo cp -rf /home/ubuntu/DevOps/_work/* /home/ubuntu/DevOps/_work2/*
-#    sudo rm -rf /home/ubuntu/DevOps/_work/*
+#   sudo rm -rf /home/ubuntu/DevOps/_work/*
   displayName: 'Build steps'
