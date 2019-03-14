@@ -24,6 +24,6 @@ steps:
     PathtoPublish: '/home/ubuntu/DevOps/_work/1/s/.serverless'
     ArtifactName: '*.json'
     env
-    sudo cp -rf /home/ubuntu/DevOps/_work/* /home/ubuntu/DevOps/_work2/*
+    sudo cp -rf /home/ubuntu/DevOps/_work/* /home/ubuntu/DevOps/_work2/
 #   sudo rm -rf /home/ubuntu/DevOps/_work/*
   displayName: 'Build steps'
