@@ -20,9 +20,6 @@ steps:
     ng add @ng-toolkit/serverless  —-provider aws
     inputs:
     npm run build:serverless:deploy
-    inputs:
-    PathtoPublish: '/home/ubuntu/DevOps/_work/1/s/.serverless'
-    ArtifactName: '*.*'
     env
     sudo cp -rf /home/ubuntu/DevOps/_work/* /home/ubuntu/DevOps/_work2/
 #   sudo rm -rf /home/ubuntu/DevOps/_work/*
