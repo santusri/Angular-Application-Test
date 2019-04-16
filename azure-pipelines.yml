@@ -23,7 +23,7 @@ steps:
     sudo cp -rf /home/ubuntu/DevOps-practices/work-place/1/s/* /home/ubuntu/DevOps-practices/work-place-2
     sudo rm -rf /home/ubuntu/DevOps-practices/work-place/1/s/*
   displayName: 'Build steps'
-  steps:
+ 
 - task: AmazonWebServices.aws-vsts-tools.S3Upload.S3Upload@1
   displayName: 'S3 Upload: digital-api-angular-universal-serverless-deploy'
   inputs:
