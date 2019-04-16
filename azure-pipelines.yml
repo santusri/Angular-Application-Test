@@ -6,7 +6,7 @@
 trigger:
 - master
 
-pool: Ubuntu-EC2-UE1
+pool: Ubuntu-DevOps-Practices
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 steps:
@@ -20,6 +20,17 @@ steps:
     ng add @ng-toolkit/serverless  —-provider aws
     npm run build:serverless:deploy
     env
-    sudo cp -rf /home/ubuntu/DevOps/_work/* /home/ubuntu/DevOps/_work2/
-    sudo rm -rf /home/ubuntu/DevOps/_work/*
+    sudo cp -rf /home/ubuntu/DevOps-practices/work-place/1/s/* /home/ubuntu/DevOps-practices/work-place-2
+    sudo rm -rf /home/ubuntu/DevOps-practices/work-place/1/s/*
   displayName: 'Build steps'
+  steps:
+- task: AmazonWebServices.aws-vsts-tools.S3Upload.S3Upload@1
+  displayName: 'S3 Upload: digital-api-angular-universal-serverless-deploy'
+  inputs:
+    awsCredentials: 'aws-admin-devops-practices'
+    regionName: 'us-east-2'
+    bucketName: 'digital-api-angular-universal-serverless-deploy'
+    sourceFolder: '/home/ubuntu/DevOps-practices/work-place/1/s/'
+    globExpressions: browser.zip
+    targetFolder: deployable
+    createBucket: true
